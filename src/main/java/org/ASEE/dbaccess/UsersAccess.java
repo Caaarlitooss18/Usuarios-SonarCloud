@@ -54,12 +54,12 @@ public class UsersAccess {
     }
     
     public boolean dbDesconectar() {
-        System.out.println("---dbDesconectar---");
+    	 LOGGER.info("---dbDesconectar---");
 
         try {
             //conexion.commit();// conexion.setAutoCommit(false); // en dbConectar()
             conexion.close();
-            System.out.println("Desconexión realizada correctamente");
+            LOGGER.info("Desconexión realizada correctamente");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -236,10 +236,12 @@ public class UsersAccess {
                 user.setRole(rset.getString(8));
                 user.setCountry(rset.getString(9));
                 user.setProfilePicture(rset.getString(10));
-                if(rset.getDate(11) != null)
+                if(rset.getDate(11) != null) {
                 user.setBirthdate(rset.getDate(11).toLocalDate());
-                if(rset.getArray(12) != null)
+                }
+                if(rset.getArray(12) != null) {
                 user.setUploadedVideos(convertintoList(rset.getArray(12)));
+                }
                 if(rset.getArray(13) != null)
                 user.setWatchedVideos(convertintoList(rset.getArray(13)));
                 if(rset.getArray(14) != null)
