@@ -245,8 +245,9 @@ public class UsersAccess {
                 if(rset.getArray(13) != null) {
                 user.setWatchedVideos(convertintoList(rset.getArray(13)));
                 }
-                if(rset.getArray(14) != null)
+                if(rset.getArray(14) != null) {
                 user.setFollowers(convertintoList(rset.getArray(14)));
+                }
                 if(rset.getArray(15) != null)
                 user.setFollowing(convertintoList(rset.getArray(15)));
                 if(rset.getArray(16) != null)
